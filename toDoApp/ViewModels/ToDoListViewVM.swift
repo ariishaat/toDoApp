@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+class ToDoListViewVM: ObservableObject {
+    @Published var showingNewItemView = false
+}

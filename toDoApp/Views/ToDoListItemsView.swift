@@ -14,20 +14,7 @@ struct ToDoListItemsView: View {
 //    }
 //    
     var body: some View {
-        NavigationView{
-            VStack {
-
-            }
-            .navigationTitle("To Do List")
-            .toolbar {
-                Button {
-                    // action - add new item to list
-                } label: {
-                    Image(systemName: "plus")
-                }
-            }
-        }
-
+        Text("HELLO")
     }
 }
 
