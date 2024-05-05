@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct ToDoListItemsView: View {
+//    @StateObject var viewModel = ToDoListItemsView()
+//    init(){
+//
+//    }
+//    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            VStack {
+
+            }
+            .navigationTitle("To Do List")
+            .toolbar {
+                Button {
+                    // action - add new item to list
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+        }
+
     }
 }
 
-#Preview {
-    ToDoListItemsView()
+struct ToDOListItemsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ToDoListItemsView()
+    }
 }
