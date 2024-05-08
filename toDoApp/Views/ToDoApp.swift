@@ -9,13 +9,11 @@ import SwiftUI
 import SwiftData
 
 @main
-struct ToDo: App {
-    var body: some Scene{
-        WindowGroup{
+struct ToDoApp: App {
+    var body: some Scene {
+        WindowGroup {
             ContentView()
                 .modelContainer(for: ToDoItem.self)
-            // app is now listening for items to store in database
         }
     }
-    
 }

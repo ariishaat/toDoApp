@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @StateObject var viewModel = ToDoListViewVM()
+    @Environment(\.modelContext) var context
     @State private var showCreate = false
     @Query private var items: [ToDoItem]
     
@@ -17,50 +17,61 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(items){ item in
+                ForEach(items) { item in
                     HStack {
-                        Text(item.itemttl)
+                        VStack(alignment: .leading) {
+                        }
+                        Text(item.title)
                             .font(.largeTitle)
                             .bold()
                         
                         Text("\(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .shortened))")
                             .font(.callout)
-                        
-                        Spacer()
-                        
-                        Button {
-                        } label: {
-                            Image(systemName: "checkmark")
-                                .symbolVariant(.circle.fill)
-                                .foregroundStyle(item.isDone ? .green : .gray)
-                                .font(.largeTitle)
-                        }
-                        .buttonStyle(.plain)
                     }
+                    
+                    Spacer()
+                    
+                    Button {
+                        withAnimation{
+                            item.isDone.toggle()
+                        }
+                    } label: {
+                        Image(systemName: "checkmark")
+                            .symbolVariant(.circle.fill)
+                            .foregroundStyle(item.isDone ? .green : .gray)
+                            .font(.largeTitle)
+                    }
+                    .buttonStyle(.plain)
                 }
             }
-            
-
-            
             .navigationTitle("To Do List")
-
             .toolbar {
-                Button {
-                    viewModel.showingNewItemView = true
-                } label: {
-                    Image(systemName: "plus")
+                ToolbarItem {
+                    Button(action: {
+                        showCreate.toggle()
+                    }, label: {
+                        Label("Add Item", systemImage: "plus")
+                    })
+                    .sheet(isPresented: $showCreate, content: { NavigationStack {
+                        NewItemView()
+                    }
+                    .presentationDetents([.medium])
+                    })
                 }
-                
             }
-
-        }
-        .sheet(isPresented: $viewModel.showingNewItemView) {
-            NewItemView(newItemPresented: $viewModel.showingNewItemView)
         }
     }
 }
 
+//            Button {
+//                viewModel.showingNewItemView = true
+//            } label: {
+//                Image(systemName: "plus")
+//        .sheet(isPresented: $viewModel.showingNewItemView) {
+//            NewItemView(newItemPresented: $viewModel.showingNewItemView)
 
-//#Preview {
-//    ContentView()
-//}
+
+
+#Preview {
+    ContentView()
+}
