@@ -15,6 +15,9 @@ class NewItemsViewVM: ObservableObject {
     init() {}
     
     func save(){
+        guard canSave else {
+            return
+        }
         
     }
     

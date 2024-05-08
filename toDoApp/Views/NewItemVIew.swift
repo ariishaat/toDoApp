@@ -11,6 +11,9 @@ import SwiftData
 
 struct NewItemView: View {
     @StateObject var viewModel = NewItemsViewVM()
+    
+    @Binding var newItemPresented: Bool
+    
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var context
     
@@ -18,43 +21,41 @@ struct NewItemView: View {
     
     
     var body: some View {
-        VStack{
-            Text("New Item")
-                .font(.system(size: 32))
-                .bold()
-            Form{
-                TextField("Title", text: $viewModel.title)
-                    .textFieldStyle(DefaultTextFieldStyle())
-                DatePicker("Due Date", selection: $viewModel.dueDate)
-                    .datePickerStyle(GraphicalDatePickerStyle())
-                
-                Button("Save") {
-                    withAnimation {
-                        context.insert(item)
-                        viewModel.save()
-                    }
+        List{
+            TextField("Title", text: $viewModel.title)
+                .textFieldStyle(DefaultTextFieldStyle())
+            DatePicker("Due Date", selection: $viewModel.dueDate)
+                .datePickerStyle(GraphicalDatePickerStyle())
+            
+            TLButton(title: "Save",
+                     background: .pink) {
+                if viewModel.canSave {
+                    viewModel.save()
+                    newItemPresented = false
+                } else {
+                    viewModel.showAlert = true
                 }
-                
             }
+                     .padding()
+            
+        }
+        .navigationTitle("New Item")
+        .font(.system(size: 32))
+        .bold()
+        .padding(.top, 100)
+        
+        .alert(isPresented: $viewModel.showAlert) {
+            Alert(title: Text("Error"), message: Text("Please fill in all field and select due date that is today or newer"))
         }
     }
 }
-        
-//        List {
-//            TextField("Name", text: .constant(""))
-//            DatePicker("Pick a Date", selection: .constant(.now))
-//            Button("Save") {
-//                withAnimation {
-//                    context.insert(item)
-//                }
-//                dismiss()
-//            }
-//        }
-//        .navigationTitle("Create New Item")
-//    }
 
 
-#Preview {
-    NewItemView()
-        .modelContainer(for: ToDoItem.self)
+
+
+struct NewItemVIew_Preview: PreviewProvider {
+    static var previews: some View {
+        NewItemView(newItemPresented: Binding(get: { return true },
+                                              set: { _ in }))
+    }
 }

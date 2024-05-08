@@ -6,7 +6,3 @@
 //
 
 import Foundation
-
-class ItemViewVM: ObservableObject {
-    init() {}
-}
