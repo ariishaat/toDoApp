@@ -17,6 +17,7 @@
 		175390282BE9CE6B001E089E /* ToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE9AA72BE81C8000110FCF /* ToDoApp.swift */; };
 		175390292BE9CE6B001E089E /* TLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175390022BE9CBDA001E089E /* TLButton.swift */; };
 		1753902A2BE9CE6B001E089E /* Preview Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 17977F8B2BE72A5E000AD076 /* Preview Assets.xcassets */; };
+		17D7BC922BEC00990068D2F6 /* ToDoItemVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D7BC912BEC00990068D2F6 /* ToDoItemVIew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		17977FA22BE72EF3000AD076 /* NewItemVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemVIew.swift; sourceTree = "<group>"; };
 		17977FA62BE73007000AD076 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		17977FAC2BE7307D000AD076 /* NewItemsViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemsViewVM.swift; sourceTree = "<group>"; };
+		17D7BC912BEC00990068D2F6 /* ToDoItemVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItemVIew.swift; sourceTree = "<group>"; };
 		17DE9AA72BE81C8000110FCF /* ToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoApp.swift; sourceTree = "<group>"; };
 		17DE9AA92BE81C8900110FCF /* ToDoListViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +88,7 @@
 				17977F862BE72A5D000AD076 /* ContentView.swift */,
 				17977FA22BE72EF3000AD076 /* NewItemVIew.swift */,
 				17DE9AA72BE81C8000110FCF /* ToDoApp.swift */,
+				17D7BC912BEC00990068D2F6 /* ToDoItemVIew.swift */,
 				175390022BE9CBDA001E089E /* TLButton.swift */,
 			);
 			path = Views;
@@ -190,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1753901D2BE9CE6B001E089E /* Assets.xcassets in Sources */,
+				17D7BC922BEC00990068D2F6 /* ToDoItemVIew.swift in Sources */,
 				1753901E2BE9CE6B001E089E /* Extensions.swift in Sources */,
 				1753901F2BE9CE6B001E089E /* ToDoItem.swift in Sources */,
 				175390222BE9CE6B001E089E /* NewItemsViewVM.swift in Sources */,

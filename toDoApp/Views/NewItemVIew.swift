@@ -10,7 +10,7 @@ import SwiftData
 
 
 struct NewItemView: View {
-    //    @StateObject var viewModel = NewItemsViewVM()
+//   @StateObject var viewModel = NewItemsViewVM()
     @State private var item = ToDoItem()
     @Environment(\.modelContext) var context
 
@@ -23,6 +23,9 @@ struct NewItemView: View {
     var body: some View {
         List {
             TextField("Name", text: $item.title)
+                .font(.system(size: 32))
+                .bold()
+                .padding(.top, 100)
             DatePicker("Pick a date", selection: $item.timestamp)
             Button("Save") {
                 withAnimation {
@@ -36,17 +39,7 @@ struct NewItemView: View {
 }
     
 
-//        VStack{
-//            Text("New Item")
-//                .font(.system(size: 32))
-//                .bold()
-//                .padding(.top, 100)
-//            Form{
-//                TextField("Title", text: $viewModel.title)
-//                    .textFieldStyle(DefaultTextFieldStyle())
-//                DatePicker("Due Date", selection: $viewModel.dueDate)
-//                    .datePickerStyle(GraphicalDatePickerStyle())
-//                
+
 //                TLButton(title: "Save",
 //                         background: .pink) {
 //                    if viewModel.canSave {
@@ -65,10 +58,10 @@ struct NewItemView: View {
 //        }
 //    }
 
-//#Preview {
-//    NewItemView()
-//        .modelContainer(for: ToDoItem.self)
-//}
+#Preview {
+    NewItemView()
+        .modelContainer(for: ToDoItem.self)
+}
 
 
 //struct NewItemVIew_Preview: PreviewProvider {
