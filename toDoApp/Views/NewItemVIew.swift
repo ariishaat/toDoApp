@@ -10,7 +10,7 @@ import SwiftData
 
 
 struct NewItemView: View {
-//   @StateObject var viewModel = NewItemsViewVM()
+   @StateObject var viewModel = NewItemsViewVM()
     @State private var item = ToDoItem()
     @Environment(\.modelContext) var context
 
@@ -28,45 +28,25 @@ struct NewItemView: View {
                 .padding(.top, 100)
             DatePicker("Pick a date", selection: $item.timestamp)
             Button("Save") {
-                withAnimation {
+                if viewModel.canSave {
+                    viewModel.save()
                     context.insert(item)
+                } else {
+                    viewModel.showAlert = true
                 }
-                dismiss()
             }
+            .padding()
+            
         }
-        .navigationTitle("New Item")
+        .alert(isPresented: $viewModel.showAlert) {
+            Alert(title: Text("Error"), message: Text("Please fill in all field and select due date that is today or newer"))
+        }
     }
 }
     
 
-
-//                TLButton(title: "Save",
-//                         background: .pink) {
-//                    if viewModel.canSave {
-//                        viewModel.save()
-//                        newItemPresented = false
-//                    } else {
-//                        viewModel.showAlert = true
-//                    }
-//                }
-//                         .padding()
-//                
-//            }
-//            .alert(isPresented: $viewModel.showAlert) {
-//                Alert(title: Text("Error"), message: Text("Please fill in all field and select due date that is today or newer"))
-//            }
-//        }
-//    }
-
-#Preview {
-    NewItemView()
-        .modelContainer(for: ToDoItem.self)
-}
-
-
-//struct NewItemVIew_Preview: PreviewProvider {
-//    static var previews: some View {
-//        NewItemView(newItemPresented: Binding(get: { return true },
-//                                              set: { _ in }))
-//    }
+//
+//#Preview {
+//    NewItemView()
+//        .modelContainer(for: ToDoItem.self)
 //}
