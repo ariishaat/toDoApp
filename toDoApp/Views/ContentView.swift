@@ -15,33 +15,42 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
+            VStack {
                 List {
                     ForEach(items) { item in
+
                         HStack{
-                        Text(item.title)
-                            .font(.title)
-                            .bold()
-                        
-                        Text("\(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .shortened))")
-                            .font(.callout)
-                        Button {
-                            withAnimation{
-                                item.isDone.toggle()
+                            VStack(alignment: .leading) {
+                                Text(item.title)
+                                    .font(.title2)
+                                    .bold()
+                                
+                                Text("\(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .shortened))")
+                                    .font(.footnote)
+                                    .foregroundColor(Color(.secondaryLabel))
                             }
-                        } label: {
-                            Image(systemName: "checkmark")
-                                .symbolVariant(.circle.fill)
-                                .foregroundStyle(item.isDone ? .green : .gray)
-                                .font(.largeTitle)
+                            Spacer()
+                            Button {
+                                withAnimation{
+                                    item.isDone.toggle()
+                                }
+                            } label: {
+                                Image(systemName: "checkmark")
+                                    .symbolVariant(.circle.fill)
+                                    .foregroundStyle(item.isDone ? .green : .gray)
+                                    .font(.largeTitle)
+                            }
+                            .padding(.trailing, 8)
+                            .buttonStyle(.plain)
                         }
-                        .buttonStyle(.plain)
-                        
                     }
                 }
                     
                 .listStyle(PlainListStyle())
             }
-            .navigationTitle("To Do List")
+            Spacer()
+                .navigationBarTitle("To Do List").font(.largeTitle)
+            Spacer()
             .toolbar {
                 ToolbarItem {
                     Button(action: {
@@ -50,15 +59,14 @@ struct ContentView: View {
                         Label("Add Item", systemImage: "plus")
                     })
                     .sheet(isPresented: $showCreate, content: { NavigationStack {
-                        NewItemView()
-                    }
-                    .presentationDetents([.medium])
-                    })
+                        NewItemView()}})
                 }
             }
         }
     }
 }
+
+
     
 #Preview {
         ContentView()
