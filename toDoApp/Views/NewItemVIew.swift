@@ -10,7 +10,7 @@ import SwiftData
 
 
 struct NewItemView: View {
-   @StateObject var viewModel = NewItemsViewVM()
+    @StateObject var viewModel = NewItemsViewVM()
     @State private var item = ToDoItem()
     @Environment(\.modelContext) var context
 

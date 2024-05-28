@@ -15,14 +15,12 @@
 		175390252BE9CE6B001E089E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17977F862BE72A5D000AD076 /* ContentView.swift */; };
 		175390262BE9CE6B001E089E /* NewItemVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17977FA22BE72EF3000AD076 /* NewItemVIew.swift */; };
 		175390282BE9CE6B001E089E /* ToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE9AA72BE81C8000110FCF /* ToDoApp.swift */; };
-		175390292BE9CE6B001E089E /* TLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175390022BE9CBDA001E089E /* TLButton.swift */; };
 		1753902A2BE9CE6B001E089E /* Preview Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 17977F8B2BE72A5E000AD076 /* Preview Assets.xcassets */; };
 		17D7BC922BEC00990068D2F6 /* ToDoItemVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D7BC912BEC00990068D2F6 /* ToDoItemVIew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		17538FFE2BE9BAE9001E089E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		175390022BE9CBDA001E089E /* TLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLButton.swift; sourceTree = "<group>"; };
 		175390082BE9CCDB001E089E /* toDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17977F862BE72A5D000AD076 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		17977F882BE72A5E000AD076 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 				17977FA22BE72EF3000AD076 /* NewItemVIew.swift */,
 				17DE9AA72BE81C8000110FCF /* ToDoApp.swift */,
 				17D7BC912BEC00990068D2F6 /* ToDoItemVIew.swift */,
-				175390022BE9CBDA001E089E /* TLButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,7 +198,6 @@
 				175390252BE9CE6B001E089E /* ContentView.swift in Sources */,
 				175390262BE9CE6B001E089E /* NewItemVIew.swift in Sources */,
 				175390282BE9CE6B001E089E /* ToDoApp.swift in Sources */,
-				175390292BE9CE6B001E089E /* TLButton.swift in Sources */,
 				1753902A2BE9CE6B001E089E /* Preview Assets.xcassets in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

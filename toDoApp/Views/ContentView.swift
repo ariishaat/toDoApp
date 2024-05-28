@@ -11,6 +11,7 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) var context
     @State private var showCreate = false
+    @State private var toDoEdit: ToDoItem? //optional, sheet modifier
     @Query private var items: [ToDoItem]
     
     var body: some View {
@@ -75,6 +76,7 @@ struct ContentView: View {
         }
     }
 }
+
 
 
     
