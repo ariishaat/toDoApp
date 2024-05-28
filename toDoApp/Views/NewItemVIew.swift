@@ -25,22 +25,30 @@ struct NewItemView: View {
             TextField("Name", text: $item.title)
                 .font(.system(size: 32))
                 .bold()
-                .padding(.top, 100)
+                .padding(.top, 30)
             DatePicker("Pick a date", selection: $item.timestamp)
+                .datePickerStyle(GraphicalDatePickerStyle())
             Button("Save") {
-                if viewModel.canSave {
-                    viewModel.save()
+                if viewModel.canSave(item: item) {
                     context.insert(item)
+                    do {
+                        try context.save()
+                        dismiss()
+                    } catch {
+                        // handle error using an alert
+                        print("Failed to save item: \(error.localizedDescription)")
+                    }
                 } else {
                     viewModel.showAlert = true
                 }
             }
             .padding()
+            .alert(isPresented: $viewModel.showAlert) {
+                Alert(title: Text("Invalid Data"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
+            }
             
         }
-        .alert(isPresented: $viewModel.showAlert) {
-            Alert(title: Text("Error"), message: Text("Please fill in all field and select due date that is today or newer"))
-        }
+        .navigationTitle("Create To Do Item")
     }
 }
     

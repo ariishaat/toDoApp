@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-// define a single to do list it∏em using SwiftData
+// define a single to do list item using SwiftData
 
 @Model
 final class ToDoItem {
