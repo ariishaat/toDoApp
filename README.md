@@ -2,7 +2,7 @@
 
 ### Quick Overview
 
-I've wanted to learn Swift for a while, so I started with this simple To-Do list iOS app for iPhones. I used SwiftData as the DB framework.
+I've wanted to learn Swift for a while, so I started with this simple To-Do list iOS app for iPhones. Users can add a new to-do list item, check off a completed item or delete an item. I used SwiftData as the DB framework.
 
 ------------------------
 
