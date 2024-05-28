@@ -18,7 +18,7 @@ struct ContentView: View {
             VStack {
                 List {
                     ForEach(items) { item in
-
+                        
                         HStack{
                             VStack(alignment: .leading) {
                                 Text(item.title)
@@ -43,24 +43,34 @@ struct ContentView: View {
                             .padding(.trailing, 8)
                             .buttonStyle(.plain)
                         }
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                withAnimation {
+                                    context.delete(item)
+                                }
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                                    .symbolVariant(.fill)
+                            }
+                        }
                     }
-                }
                     
-                .listStyle(PlainListStyle())
-            }
-            Spacer()
-                .navigationBarTitle("To Do List").font(.largeTitle)
-            Spacer()
-            .toolbar {
-                ToolbarItem {
-                    Button(action: {
-                        showCreate.toggle()
-                    }, label: {
-                        Label("Add Item", systemImage: "plus")
-                    })
-                    .sheet(isPresented: $showCreate, content: { NavigationStack {
-                        NewItemView()}})
+                    .listStyle(PlainListStyle())
                 }
+                Spacer()
+                    .navigationBarTitle("To Do List").font(.largeTitle)
+                Spacer()
+                    .toolbar {
+                        ToolbarItem {
+                            Button(action: {
+                                showCreate.toggle()
+                            }, label: {
+                                Label("Add Item", systemImage: "plus")
+                            })
+                            .sheet(isPresented: $showCreate, content: { NavigationStack {
+                                NewItemView()}})
+                        }
+                    }
             }
         }
     }
