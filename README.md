@@ -4,5 +4,6 @@ fixes to do:
 - [ ] UI design changes for new item view (maybe)
 - [x] Validation cases fix
 - [ ] Alert message fix
-- [ ] Delete feature
+- [x] Delete feature
 - [x] Update feature
+- [ ] App cover picture
