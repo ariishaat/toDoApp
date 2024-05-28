@@ -22,6 +22,7 @@ Short walkthrough of the app:
 
 
 Some helpful links I used for making this:
-* [Reference for the interface layout](https://youtu.be/t_mypMqSXNw?si=X_Ps5dKs13kE97d3)
-* [Reference for the other features](https://youtu.be/kLNNNXD8X2U?si=2_HYDwyteXtpFIwy)
+* [SwiftUI Masterclass: Build To Do List App](https://youtu.be/t_mypMqSXNw?si=X_Ps5dKs13kE97d3)
+* [SwiftData For Beginners](https://youtu.be/kLNNNXD8X2U?si=2_HYDwyteXtpFIwy)
+* [SwiftUI Documentation](https://developer.apple.com/documentation/swiftui/scroll-views)
   
